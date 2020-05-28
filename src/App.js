@@ -4,31 +4,16 @@ import './App.css';
 
 import HomePage from './pages/homepage/homepage'
 import Error from './components/error/error'
-
-const Hats = (props) => {
-  return (
-    <div>
-      <h1>Hats</h1>
-    </div>
-  )
-}
-const Jackets = (props) => {
-  return (
-    <div>
-      <h1>Jackets</h1>
-    </div>
-  )
-}
-
-
+import ShopPage from './pages/shop/shop'
+import Header from './components/header/header'
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/hats" component={Hats} />
-        <Route exact path="/jackets" component={Jackets} />
+        <Route exact path="/shop" component={ShopPage} />
         <Route component={Error} />
       </Switch>
     </div>

@@ -12,7 +12,7 @@ const StripeCheckoutButton = ({ price }) => {
     return (
         <StripeCheckout
             label="Pay Now"
-            name="Ocean Clothing Ltd."
+            name="Ocean Shopping Ltd."
             billingAddress
             shippingAddress
             // image="https://svgshare.com/i/CUz.svg"

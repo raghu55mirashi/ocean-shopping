@@ -3,39 +3,39 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart-selectors'
-import './checkout.scss'
+import { CheckoutPageContainer, CheckoutHeader, CheckoutHeaderBlock, CheckoutTotal } from './checkout.styles'
 import CheckoutItem from '../../components/checkout-item/checkout-item'
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button'
 
 const CheckoutPage = ({ cartItems, cartTotal }) => (
-    <div className="checkout-page">
-        <div className="checkout-header">
-            <div className="header-block">
+    <CheckoutPageContainer>
+        <CheckoutHeader>
+            <CheckoutHeaderBlock>
                 <span>Product</span>
-            </div>
-            <div className="header-block">
+            </CheckoutHeaderBlock>
+            <CheckoutHeaderBlock>
                 <span>Description</span>
-            </div>
-            <div className="header-block">
+            </CheckoutHeaderBlock>
+            <CheckoutHeaderBlock>
                 <span>Quantity</span>
-            </div>
-            <div className="header-block">
+            </CheckoutHeaderBlock>
+            <CheckoutHeaderBlock>
                 <span>Price</span>
-            </div>
-            <div className="header-block">
+            </CheckoutHeaderBlock>
+            <CheckoutHeaderBlock>
                 <span>Remove</span>
-            </div>
-        </div>
+            </CheckoutHeaderBlock>
+        </CheckoutHeader>
         {
             cartItems.map(cartItem => (
                 <CheckoutItem key={cartItem.id} cartItem={cartItem} />
             ))
         }
-        <div className="total">
+        <CheckoutTotal>
             <span>TOTOL: ${cartTotal}</span>
             <StripeCheckoutButton price={cartTotal} />
-        </div>
-    </div>
+        </CheckoutTotal>
+    </CheckoutPageContainer>
 )
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,

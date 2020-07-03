@@ -7,13 +7,13 @@ export const selectCollections = createSelector(
     shop => shop.collections
 )
 
-//below function for collection-overview of shop
+//below function for all items collection-overview of shop
 export const selectCollectionPreview = createSelector(
     [selectCollections],
     collections => Object.keys(collections).map(key => collections[key])
 )
 
-//below function for category collection of shop
+//below function for category wise collection of shop
 export const selectCollection = collectionUrlParams => createSelector(
     [selectCollections],
     collections => collections[collectionUrlParams]

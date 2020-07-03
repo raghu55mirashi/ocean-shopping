@@ -16,6 +16,9 @@ import SignInAndSignUp from './pages/signin-and-signup/signin-and-signup'
 import { auth, createUserProfileDocument } from './firebase/firebase'
 import { setCurrentUser } from './redux/user/user-actions'
 import { selectCurrentUser } from './redux/user/user-selectors'
+// import { selectCollectionPreview } from './redux/shop/shop-selectors'
+//selectCollectionPreview --use to add shop-data to firebase
+//addCollectionAndDocuments --call this method to add shop-data to firebase
 
 class App extends React.Component {
 
@@ -35,7 +38,11 @@ class App extends React.Component {
         })
       }
       setCurrentUser(userAuth)
+
+      // addCollectionAndDocuments('collections', collectionArray.map(({ title, items }) => ({ title, items })))
+      //this is to load shop data to firestore --import from firebase.js
     })
+
   }
 
   componentWillUnmount() {
@@ -61,7 +68,8 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  // collectionArray: selectCollectionPreview //this is to move data to firestore
 })
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))

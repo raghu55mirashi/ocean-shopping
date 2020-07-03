@@ -1,18 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import CollectionPage from '../collection/collection'
 import CollectionOverview from '../../components/collection-overview/collection-overview'
 
-const ShopPage = ({ match }) => {
-    console.log(match);
+import { firestore, convertCollectionSnapshotToMap } from '../../firebase/firebase'
+import { updateCollections } from '../../redux/shop/shop-actions'
 
-    return (
-        <div className="shop-page">
-            <Route exact path={`${match.path}`} component={CollectionOverview} />
-            <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
-        </div>)
+class ShopPage extends Component {
+    // unsubscribeFromSnapshop = null
+
+    componentDidMount() {
+        const { updateCollections } = this.props
+        const collectionRef = firestore.collection('collections')
+        collectionRef.onSnapshot(async snapshot => {
+            const collectionMap = convertCollectionSnapshotToMap(snapshot)
+            updateCollections(collectionMap);
+        })
+    }
+
+    componentWillUnmount() {
+        // this.unsubscribeFromSnapshop()
+    }
+    render() {
+        const { match } = this.props
+        return (
+            <div className="shop-page">
+                <Route exact path={`${match.path}`} component={CollectionOverview} />
+                <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
+            </div>)
+    }
 }
+const mapDispatchToProps = dispatch => ({
+    updateCollections: (collectionMap) => dispatch(updateCollections(collectionMap))
+})
 
-
-export default ShopPage
+export default connect(null, mapDispatchToProps)(ShopPage)

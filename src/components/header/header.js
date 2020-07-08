@@ -20,7 +20,7 @@ const Header = ({ currentUser, hidden }) => (
             <OptionLink to="/shop">SHOP</OptionLink>
             <OptionLink to="/contact">CONTACT</OptionLink>
             {currentUser
-                ? (<OptionLink as="div" onClick={() => auth.signOut()}>SignOut</OptionLink>)
+                ? (<OptionLink as="div" onClick={() => auth.signOut()}>SIGN OUT</OptionLink>)
                 : (<OptionLink to="/signin">SIGN IN</OptionLink>)
             }
             <CartIcon />

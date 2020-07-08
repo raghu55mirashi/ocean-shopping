@@ -5,7 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid #fff;
+  border-radius: 3px;
   margin: 0 7.5px 15px;
   overflow: hidden;
 
@@ -23,6 +24,10 @@
 
   &.large {
     height: 380px;
+
+    @media (max-width: 800px) {
+      height: 200px;
+    }
   }
 
   &:first-child {
@@ -63,5 +68,8 @@
       font-weight: lighter;
       font-size: 16px;
     }
+  }
+  @media (max-width: 800px) {
+    height: 200px;
   }
 }

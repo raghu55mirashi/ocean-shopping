@@ -1,7 +1,9 @@
 .sign-in {
-  width: 380px;
+  width: 368px;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  padding-right: 10px;
 
   .title {
     margin: 10px;
@@ -10,5 +12,6 @@
   .buttons {
     display: flex;
     justify-content: space-between;
+    text-align: center;
   }
 }

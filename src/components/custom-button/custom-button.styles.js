@@ -52,7 +52,7 @@ export const CustomButtonContainer = styled.button`
     cursor: pointer;
     display: inline;
     justify-content: center;
-    margin: 0 3px;
+    margin: 0 2px;
     box-sizing: border-box;
     ${getButtonStyles}
 `

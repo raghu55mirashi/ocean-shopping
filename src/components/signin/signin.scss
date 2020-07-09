@@ -1,5 +1,5 @@
 .sign-in {
-  width: 368px;
+  width: 380px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -13,5 +13,9 @@
     display: flex;
     justify-content: space-between;
     text-align: center;
+  }
+
+  @media (max-width: 800px) {
+    width: 350px;
   }
 }

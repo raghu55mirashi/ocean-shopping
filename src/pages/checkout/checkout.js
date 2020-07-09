@@ -32,7 +32,7 @@ const CheckoutPage = ({ cartItems, cartTotal }) => (
             ))
         }
         <CheckoutTotal>
-            <span>TOTOL: ${cartTotal}</span>
+            <span style={{ paddingRight: '15px' }}>TOTOL: ${cartTotal}</span>
             <StripeCheckoutButton price={cartTotal} />
         </CheckoutTotal>
     </CheckoutPageContainer>

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { ReactComponent as Logo } from '../../assets/crown.svg'
+import ocean from '../../assets/ocean.png'
 import CartIcon from '../cart-icon/cart-icon'
 import CartDropdown from '../cart-dropdown/cart-dropdown'
 import { selectCurrentUser } from '../../redux/user/user-selectors'
@@ -14,7 +14,7 @@ import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './
 const Header = ({ currentUser, hidden }) => (
     <HeaderContainer>
         <LogoContainer to="/">
-            <Logo className="logo" />
+            <img src={ocean} className="logo" alt="ocean" />
         </LogoContainer>
         <OptionsContainer>
             <OptionLink to="/shop">SHOP</OptionLink>

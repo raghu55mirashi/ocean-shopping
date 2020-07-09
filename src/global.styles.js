@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Open Sans Condensed', sans-serif;
         padding: 20px 40px;
-
+        margin-top: 70px;
         
         background: #20002c;  
         background: -webkit-linear-gradient(to left, #cbb4d4, #20002c);  /* Chrome 10-25, Safari 5.1-6 */

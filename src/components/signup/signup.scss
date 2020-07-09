@@ -1,11 +1,15 @@
 .sign-up {
   display: flex;
   flex-direction: column;
-  width: 368px;
+  width: 380px;
   text-align: center;
   padding-right: 10px;
 
   .title {
     margin: 10px 0;
+  }
+
+  @media (max-width: 800px) {
+    width: 350px;
   }
 }
